@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import BannerProject from '../../../components/BannerProject';
 import Header from '../../../components/Header';
 import Prismic from '@prismicio/client';
@@ -30,6 +31,23 @@ export default function Projeto({ projeto }: ProjetoProps) {
   }
   return (
     <ProjetoPage>
+
+      <Head>
+        <title>{projeto.title} | Meu Portfólio</title>
+        <meta
+          name="description"
+          content="Sou um desenvolvedor Front-end e aqui apresento alguns projetos desenvolvidos por mim!"
+        />
+        <meta property="og:image" content={projeto.thumbnail} />
+        <meta property="og:image:secure_url" content={projeto.thumbnail} />
+        <meta name="twitter:image" content={projeto.thumbnail} />
+        <meta name="twitter:image:src" content={projeto.thumbnail} />
+        <meta
+          property="og:description"
+          content={projeto.description}
+        />
+      </Head>
+
       <Header />
       <BannerProject
         title={projeto.title}
