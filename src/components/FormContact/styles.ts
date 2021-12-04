@@ -5,12 +5,13 @@ export const Container = styled.section`
 
 `;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   margin-top: 8rem;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  position: relative;
 
   > button {
     border: none;
@@ -24,11 +25,11 @@ export const FormContainer = styled.div`
     width: fit-content;
 
     &:disabled {
-      opacity: 0.5;
+      opacity: 0.3;
     }
 
     &:not(:disabled):hover {
-      background: ${({ theme }) => darken(0.05, theme.primary)}
+      background: ${({ theme }) => darken(0.1, theme.primary)}
     }
   }
 
