@@ -18,7 +18,6 @@ interface ProjetosProps {
 }
 
 function Projects({ projetos }: ProjetosProps) {
-  console.log(projetos)
   
   return (
     <Container>

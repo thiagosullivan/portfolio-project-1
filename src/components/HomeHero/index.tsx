@@ -3,7 +3,7 @@ import picture from '../../assets/pessoa.webp';
 
 function HomeHero() {
   return (
-    <Container>
+    <Container data-aos="fade-up">
       <img src={picture} alt="Minha foto"/>
       <div>
         <TextContainer>

@@ -53,8 +53,6 @@ export const getStaticProps: GetStaticProps = async () => {
     link: projeto.data.link,
     thumbnail: projeto.data.thumbnail.url,
   }));
-  
-  console.log(projetos)
 
   return {
     props: {

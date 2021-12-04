@@ -1,3 +1,12 @@
+import Prismic from '@prismicio/client';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
+import { HomeContainer } from '../styles/HomeStyles';
+import { getPrismicClient } from '../services/prismic';
+import { GetStaticProps } from "next";
+import { useEffect } from 'react';
+
 import Header from "../components/Header";
 import HomeHero from "../components/HomeHero";
 import Experiences from '../components/Experiences';
@@ -5,11 +14,6 @@ import Projects from '../components/Projects';
 import Knowledge from '../components/Knowledge';
 import FormContact from '../components/FormContact';
 import Footer from '../components/Footer';
-import Prismic from '@prismicio/client';
-
-import { HomeContainer } from '../styles/HomeStyles';
-import { getPrismicClient } from '../services/prismic';
-import { GetStaticProps } from "next";
 
 interface IProjeto {
   slug: string;
@@ -25,6 +29,10 @@ interface HomeProps {
 }
 
 export default function Home({ projetos }: HomeProps) {
+  useEffect(() => {
+    Aos.init({ duration: 1500 });
+  }, [])
+
   return (
     <HomeContainer>
       <Header />
@@ -57,8 +65,6 @@ export const getStaticProps: GetStaticProps = async () => {
     link: projeto.data.link,
     thumbnail: projeto.data.thumbnail.url,
   }));
-  
-  console.log(projetos)
 
   return {
     props: {

@@ -23,7 +23,8 @@ interface ProjetoProps {
 
 export default function Projeto({ projeto }: ProjetoProps) {
 
-  const router = useRouter();  
+  const router = useRouter();
+  
   if(router.isFallback) {
     return <Loadingscreen />
   }
@@ -68,8 +69,7 @@ export const getStaticProps: GetStaticProps = async context => {
   const prismic = getPrismicClient();
   const { slug } = context.params;
 
-  const response = await prismic.getByUID('projeto', String(slug), {});  
-  console.log(response);
+  const response = await prismic.getByUID('projeto', String(slug), {});
 
   const projeto = {
     slug: response.uid,
