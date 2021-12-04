@@ -4,30 +4,36 @@ import ProjectItem from "./ProjectItem";
 
 import { Container } from "./styles";
 
-function Projects() {
+interface IProjeto {
+  slug: string;
+  title: string;
+  type: string;
+  description: string;
+  link: string;
+  thumbnail: string;
+}
+
+interface ProjetosProps {
+  projetos: IProjeto[];
+}
+
+function Projects({ projetos }: ProjetosProps) {
+  console.log(projetos)
+  
   return (
     <Container>
       <SectionTitle title="Últimos Projetos"/>
 
       <section>
-        <ProjectItem
-          img="https://www.ayrtonsenna.com.br/wp-content/uploads/2016/12/brasil-90.jpg"
-          title="Projeto 01"
-          type="Website"
-          slug="test"
-        />
-        <ProjectItem
-          img="https://www.ayrtonsenna.com.br/wp-content/uploads/2016/12/brasil-90.jpg"
-          title="Projeto 01"
-          type="Website"
-          slug="test"
-        />
-        <ProjectItem
-          img="https://www.ayrtonsenna.com.br/wp-content/uploads/2016/12/brasil-90.jpg"
-          title="Projeto 01"
-          type="Website"
-          slug="test"
-        />
+        {projetos.slice(0,3).map( projeto => (
+          <ProjectItem
+            key={projeto.slug}
+            img={projeto.thumbnail}
+            title={projeto.title}
+            type={projeto.type}
+            slug={projeto.slug}
+          />
+        ))}        
       </section>
 
       <button type="button">
