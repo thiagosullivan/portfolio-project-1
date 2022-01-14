@@ -1,8 +1,8 @@
-import { Container, SpinnerContainer } from './styles';
+import { LoadingContainer, SpinnerContainer } from './styles';
 
 function LoadingComponent() {
   return (
-    <Container>
+    <LoadingContainer>
       <SpinnerContainer>
         <div className="sk-circle">
           <div className="sk-circle1 sk-child"></div>
@@ -19,7 +19,7 @@ function LoadingComponent() {
           <div className="sk-circle12 sk-child"></div>
         </div>
       </SpinnerContainer>
-    </Container>
+    </LoadingContainer>
   )
 }
 
